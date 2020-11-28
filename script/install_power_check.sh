@@ -34,8 +34,8 @@ sudo mysql_secure_installation
 
 sudo systemctl stop mariadb
 sudo mysqld_safe --skip-grant-tables --skip-networking &
-echo "skip sudo systemctl start mysql.service"
-sudo systemctl start mariadb
+#sudo systemctl start mysql.service
+#sudo systemctl start mariadb
 
 
 echo "python integration to MYSQL"
@@ -43,6 +43,9 @@ pip3 install mariadb
 sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 systemctl status mariadb.service
+
+mysql < Power_check/mysql.txt
+
 
 
 
