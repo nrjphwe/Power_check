@@ -1,6 +1,10 @@
-#! /bin/sh
+#!/bin/bash
+trap 'read -p "run: $BASH_COMMAND"' DEBUG
 
-set -e
+#! /bin/sh
+#set -e
+#set -x
+
 cd "$(dirname "$0")/.."
 
 
@@ -44,7 +48,7 @@ sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 systemctl status mariadb.service
 
-mysql < Power_check/mysql.txt
+mysql < mysql.txt
 
 
 
