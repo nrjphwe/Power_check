@@ -14,8 +14,8 @@ sudo apt install apache2 -y
 sudo a2enmod cgi
 
 
-echo "=> Installing power_cehck files at CGI-BIN...\n"
-sudo cp -v power_check.py /usr/lib/cgi-bin
+echo "=> Installing power_check files at CGI-BIN...\n"
+sudo cp -v -n power_check.py /usr/lib/cgi-bin
 sudo chmod -R 755 /usr/lib/cgi-bin
 sudo chown -R www-data:www-data /usr/lib/cgi-bin
 
