@@ -1,5 +1,5 @@
 #!/bin/bash
-trap 'read -p "run: $BASH_COMMAND"' DEBUG
+trap 'read -p "run: $BASH_COMMAND "' DEBUG
 
 #! /bin/sh
 #set -e
@@ -37,7 +37,7 @@ echo "sudo mysql_secure_installation"
 sudo mysql_secure_installation
 
 sudo systemctl stop mariadb
-sudo mysqld_safe --skip-grant-tables --skip-networking &
+#sudo mysqld_safe --skip-grant-tables --skip-networking &
 #sudo systemctl start mysql.service
 #sudo systemctl start mariadb
 
@@ -48,9 +48,17 @@ sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 systemctl status mariadb.service
 
-mysql < mysql.txt
+echo: "create user pi@localhost identified by "password""
+mysql -u root -p
 
+mysql -h localhost -u pi -p < mysql.txt
 
+sudo apt-get install -y adduser libfontconfig1
+wget https://dl.grafana.com/oss/release/grafana_7.3.1_armhf.deb
+sudo dpkg -i grafana_7.3.1_armhf.deb
 
-
-
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable grafana-server
+### You can start grafana-server by executing
+sudo /bin/systemctl start grafana-server
+systemctl status grafana-server
