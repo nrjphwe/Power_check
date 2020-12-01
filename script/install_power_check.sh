@@ -1,7 +1,6 @@
 #!/bin/bash
-trap 'read -p "run: $BASH_COMMAND "' DEBUG
+#trap 'read -p "run: $BASH_COMMAND "' DEBUG
 
-#! /bin/sh
 #set -e
 #set -x
 
@@ -38,7 +37,7 @@ sudo mysql_secure_installation
 
 echo "after sudo mysql -u root then "
 echo "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';"
-echo "create user pi@localhost identified by "password;"
+echo "create user pi@localhost identified by "password";"
 echo "grant all privileges on regattastart.* TO pi@localhost;"
 echo "FLUSH PRIVILEGES;"
 echo "now mysql -u root"
