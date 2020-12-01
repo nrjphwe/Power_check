@@ -8,7 +8,7 @@ import adafruit_ads1x15.ads1015 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 
 try:
-   conn = mariadb.connect(host = "localhost", user = "root", passwd = "passwordE", db = "database")
+   conn = mariadb.connect(host = "localhost", user = "pi", passwd = "password", db = "regattastart")
    cursor = conn.cursor()
 except mariadb.Error as e:
    print(f"Error connecting to MariaDB Platform: {e}")
