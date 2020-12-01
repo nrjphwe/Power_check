@@ -32,24 +32,29 @@ sudo apt-get -y install python3-pip
 pip3 install adafruit-circuitpython-ads1x15
 
 echo "=> setup SQL-Mariadb:...\n"
-sudo apt install mariadb-server
+sudo apt -y install mariadb-server mariadb-client
 echo "sudo mysql_secure_installation"
 sudo mysql_secure_installation
 
+echo "after sudo mysql -u root then "
+echo "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';"
+echo "create user pi@localhost identified by "password;"
+echo "grant all privileges on regattastart.* TO pi@localhost;"
+echo "FLUSH PRIVILEGES;"
+echo "now mysql -u root"
+sudo mysql -u root
+
+echo "now comes: sudo systemctl stop mariadb"
 sudo systemctl stop mariadb
 #sudo mysqld_safe --skip-grant-tables --skip-networking &
 #sudo systemctl start mysql.service
 #sudo systemctl start mariadb
-
 
 echo "python integration to MYSQL"
 pip3 install mariadb
 sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 systemctl status mariadb.service
-
-echo: "create user pi@localhost identified by "password""
-mysql -u root -p
 
 mysql -h localhost -u pi -p < mysql.txt
 
@@ -62,3 +67,6 @@ sudo /bin/systemctl enable grafana-server
 ### You can start grafana-server by executing
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
+
+echo "cat /usr/lib/cgi-bin/power_check.py"
+echo "if needed revise user, password and database" 
