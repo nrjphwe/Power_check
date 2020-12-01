@@ -8,6 +8,4 @@ Installation
 Connect to your Raspberry Pi via SSH.
 Clone this repo: git clone https://github.com/nrjphwe/Power_check
 
-set: chmod +x ./script/install_power_check.sh
-
-Then cd ower_check and run the setup script: ./script/install_power_check.sh
+cd Power_check and run the setup script: ./script/install_power_check.sh
