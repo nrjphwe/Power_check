@@ -35,12 +35,13 @@ sudo apt -y install mariadb-server mariadb-client
 echo "sudo mysql_secure_installation"
 sudo mysql_secure_installation
 
-echo "after sudo mysql -u root then "
-echo "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';"
-echo "create user pi@localhost identified by "password";"
-echo "grant all privileges on regattastart.* TO pi@localhost;"
-echo "FLUSH PRIVILEGES;"
-echo "now mysql -u root"
+echo " === Now some manual steps, copy paste the lines and paste into mysql>           ==="
+echo " === after sudo mysql -u root then                                               ==="
+echo " === UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root'; ==="
+echo " === create user pi@localhost identified by "password";                          ==="
+echo " === grant all privileges on regattastart.* TO pi@localhost;                     ==="
+echo " === FLUSH PRIVILEGES;                                                           ==="
+echo " === now mysql -u root                                                           ==="
 sudo mysql -u root
 
 echo "now comes: sudo systemctl stop mariadb"
@@ -48,6 +49,7 @@ sudo systemctl stop mariadb
 #sudo mysqld_safe --skip-grant-tables --skip-networking &
 #sudo systemctl start mysql.service
 #sudo systemctl start mariadb
+## ???
 
 echo "python integration to MYSQL"
 pip3 install mariadb
