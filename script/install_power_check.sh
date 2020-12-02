@@ -2,16 +2,14 @@
 #trap 'read -p "run: $BASH_COMMAND "' DEBUG
 
 #set -e
-#set -x
+set -x
 
 cd "$(dirname "$0")/.."
-
 
 echo "=> Installing apache...\n"
 sudo apt update
 sudo apt install apache2 -y
 sudo a2enmod cgi
-
 
 echo "=> Installing power_check files at CGI-BIN...\n"
 sudo cp -v -n power_check.py /usr/lib/cgi-bin
@@ -71,3 +69,9 @@ systemctl status grafana-server
 
 echo "cat /usr/lib/cgi-bin/power_check.py"
 echo "if needed revise user, password and database" 
+
+echo " VNC"
+sudo vncpasswd -service
+# sudo systemctl start vncserver-x11-serviced.service
+# sudo systemctl enable vncserver-x11-serviced.service
+sudo systemctl restart vncserver-x11-serviced
