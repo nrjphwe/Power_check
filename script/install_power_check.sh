@@ -35,7 +35,7 @@ sudo apt -y install mariadb-server mariadb-client
 echo "sudo mysql_secure_installation"
 sudo mysql_secure_installation
 
-echo " === Now some manual steps, copy paste the lines and paste into mysql>           ==="
+echo " === Now some manual steps, copy the lines and paste into mysql                  ==="
 echo " === after sudo mysql -u root then                                               ==="
 echo " === UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root'; ==="
 echo " === create user pi@localhost identified by "password";                          ==="
@@ -49,13 +49,14 @@ sudo systemctl stop mariadb
 #sudo mysqld_safe --skip-grant-tables --skip-networking &
 #sudo systemctl start mysql.service
 #sudo systemctl start mariadb
-## ???
+
 
 echo "python integration to MYSQL"
 pip3 install mariadb
 sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 sudo systemctl start mysql.service
+sleep 5
 systemctl status mariadb.service
 
 mysql -h localhost -u pi -p < mysql.txt
