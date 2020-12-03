@@ -6,6 +6,8 @@ set -x
 
 cd "$(dirname "$0")/.."
 
+echo  "Authentication=VncAuth" | sudo tee -a  /etc/vnc/config.d/common.custom
+
 echo "=> Installing apache...\n"
 sudo apt update
 sudo apt install apache2 -y
@@ -73,5 +75,5 @@ sudo vncpasswd -service
 # sudo systemctl enable vncserver-x11-serviced.service
 sudo systemctl restart vncserver-x11-serviced
 
-echo "cat /usr/lib/cgi-bin/power_check.py"
-echo "if needed revise user, password and database" 
+echo "sudo nano /usr/lib/cgi-bin/power_check.py"
+echo "if needed revise password" 
