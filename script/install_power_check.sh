@@ -67,11 +67,11 @@ sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
 
-echo "cat /usr/lib/cgi-bin/power_check.py"
-echo "if needed revise user, password and database" 
-
 echo " VNC"
 sudo vncpasswd -service
 # sudo systemctl start vncserver-x11-serviced.service
 # sudo systemctl enable vncserver-x11-serviced.service
 sudo systemctl restart vncserver-x11-serviced
+
+echo "cat /usr/lib/cgi-bin/power_check.py"
+echo "if needed revise user, password and database" 
