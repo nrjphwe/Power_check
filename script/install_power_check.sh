@@ -55,6 +55,7 @@ echo "python integration to MYSQL"
 pip3 install mariadb
 sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
+sudo systemctl start mysql.service
 systemctl status mariadb.service
 
 mysql -h localhost -u pi -p < mysql.txt
