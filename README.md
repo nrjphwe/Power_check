@@ -2,7 +2,7 @@
 By connecting a ADS1115 board, we can measure voltage. 
 This project measure the battery voltage and the very low voltage over a shunt to get amps through the shunt.
 
-When running raspi-config aslo set up interface I2C (and SSH, VNC and maybe camera)
+When running raspi-config also enable the interface I2C (and SSH, VNC and maybe camera)
 
 Installation
 
