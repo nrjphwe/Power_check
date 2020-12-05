@@ -1,3 +1,4 @@
+!/usr/bin/pytho
 import sys
 import mariadb
 import datetime #new
