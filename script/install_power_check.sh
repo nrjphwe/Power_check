@@ -13,10 +13,10 @@ sudo apt update
 sudo apt install apache2 -y
 sudo a2enmod cgi
 
-echo "=> Installing power_check files at CGI-BIN...\n"
-sudo cp -v -n power_check.py /usr/lib/cgi-bin
-sudo chmod -R 755 /usr/lib/cgi-bin
-sudo chown -R www-data:www-data /usr/lib/cgi-bin
+# We need to start the power_check script on boot by
+# Place the script in /usr/local/bin and make it executable:
+sudo cp -v -n power_check.py /usr/local/bin/
+sudo chmod +x/usr/local/bin/power_check.py
 
 echo "=> Installing PHP...\n"
 sudo apt install php libapache2-mod-php -y
