@@ -77,5 +77,5 @@ sudo vncpasswd -service
 # sudo systemctl enable vncserver-x11-serviced.service
 sudo systemctl restart vncserver-x11-serviced
 
-echo "sudo nano /usr/lib/cgi-bin/power_check.py"
+echo "sudo nano /usr/local/bin/power_check.py"
 echo "if needed revise password" 
