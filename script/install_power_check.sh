@@ -15,8 +15,24 @@ sudo a2enmod cgi
 
 # We need to start the power_check script on boot by
 # Place the script in /usr/local/bin and make it executable:
-sudo cp -v -n power_check.py /usr/local/bin/
-sudo chmod +x /usr/local/bin/power_check.py
+# sudo cp -v -n power_check.py /usr/local/bin/
+# fungerar inte
+
+#3. init.d directory
+sudo cp -v -n power_check.py /etc/init.d/
+# cd /etc/init.d sudo nano power_check.py
+# add:text below to power_check.py
+# /etc/init.d/power_check.py
+### BEGIN INIT INFO
+# Provides:          sample.py
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
 
 echo "=> Installing PHP...\n"
 sudo apt install php libapache2-mod-php -y
