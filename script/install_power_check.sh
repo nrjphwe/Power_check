@@ -59,18 +59,20 @@ sudo systemctl start mysql.service
 sleep 5
 systemctl status mariadb.service
 
+# import/add sql data to db
 mysql -h localhost -u pi -p < mysql.txt
 
+# install Grafana
 sudo apt-get install -y adduser libfontconfig1
 wget https://dl.grafana.com/oss/release/grafana_7.3.1_armhf.deb
 sudo dpkg -i grafana_7.3.1_armhf.deb
-
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable grafana-server
 ### You can start grafana-server by executing
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
 
+# start upp VNC
 echo " VNC"
 sudo vncpasswd -service
 # sudo systemctl start vncserver-x11-serviced.service
