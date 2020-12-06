@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # /etc/init.d/power_check.py
 ### BEGIN INIT INFO
-# Provides:          sample.py
+# Provides:          power_check.py
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
