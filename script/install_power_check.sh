@@ -33,6 +33,11 @@ sudo cp -v -n power_check.py /etc/init.d/
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 
+#Make the sample script in the init directory executable by changing its permission.
+sudo chmod +x /etc/init.d/power_check.py
+# and also run this command
+sudo update-rc.d power_check.py defaults
+
 
 echo "=> Installing PHP...\n"
 sudo apt install php libapache2-mod-php -y
