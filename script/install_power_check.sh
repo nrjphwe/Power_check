@@ -20,6 +20,7 @@ sudo cp script/power_check.service /lib/systemd/system
 sudo chmod 644 /lib/systemd/system/power_check.service
 sudo systemctl daemon-reload
 sudo systemctl enable power_check.service
+export PYTHONPATH="${PYTHONPATH}:/usr/lib/cgi-bin"
 #
 
 echo "=> Installing PHP...\n"
