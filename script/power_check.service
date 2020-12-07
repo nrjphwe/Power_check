@@ -1,0 +1,10 @@
+[Unit]
+Description=My power_check servicee
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /usr/lib/cbgi-bin/power_check.py
+
+[Install]
+WantedBy=multi-user.target
