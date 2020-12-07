@@ -13,22 +13,11 @@ sudo apt update
 sudo apt install apache2 -y
 sudo a2enmod cgi
 
-# We need to start the power_check script on boot by
-# 1. sudo nano /lib/systemd/system/power_check.service
-# add following text:
-#[Unit]
-# Description=My power_check service
-# After=multi-user.target
-#
-# [Service]
-# Type=idle
-# ExecStart=/usr/bin/python3 /usr/lib/cbgi-bin/power_check.py
-#
-# [Install]
-# WantedBy=multi-user.target
+# We need to start the power_check script on boot by systemd file
+
+sudo cp script/power_check.service /lib/systemd/system/
 
 sudo chmod 644 /lib/systemd/system/power_check.service
-
 
 echo "=> Installing PHP...\n"
 sudo apt install php libapache2-mod-php -y
