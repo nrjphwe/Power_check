@@ -13,6 +13,8 @@ sudo apt update
 sudo apt install apache2 -y
 sudo a2enmod cgi
 
+# copy original power_check file to /usr/lib/cgi-bin
+sudo cp -v power_check.py /usr/lib/cgi-bin
 # We start the power_check script on boot by using systemd file
 sudo cp script/power_check.service /lib/systemd/system
 sudo chmod 644 /lib/systemd/system/power_check.service
