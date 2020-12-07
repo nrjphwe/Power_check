@@ -13,11 +13,12 @@ sudo apt update
 sudo apt install apache2 -y
 sudo a2enmod cgi
 
-# We need to start the power_check script on boot by systemd file
-
-sudo cp script/power_check.service /lib/systemd/system/
-
+# We start the power_check script on boot by using systemd file
+sudo cp script/power_check.service /lib/systemd/system
 sudo chmod 644 /lib/systemd/system/power_check.service
+sudo systemctl daemon-reload
+sudo systemctl enable power_check.service
+#
 
 echo "=> Installing PHP...\n"
 sudo apt install php libapache2-mod-php -y
@@ -51,7 +52,6 @@ sudo systemctl stop mariadb
 #sudo systemctl start mysql.service
 #sudo systemctl start mariadb
 
-
 echo "python integration to MYSQL"
 pip3 install mariadb
 sudo apt install python3-mysql.connector
@@ -80,7 +80,8 @@ sudo vncpasswd -service
 # sudo systemctl enable vncserver-x11-serviced.service
 sudo systemctl restart vncserver-x11-serviced
 
-echo "sudo nano /etc/init.d/power_check.py"
+# original file contains dummy passwd.
+echo "sudo nano /usr/lib/cgi-bin/power_check.py"
 echo "if needed revise password" 
 
 # create an entry in crontab by crontab -e, then in the bottom add
