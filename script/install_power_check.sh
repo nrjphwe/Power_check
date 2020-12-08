@@ -36,7 +36,7 @@ sudo chown -R www-data:www-data /var/www/html
 
 echo "=> setup for ADS1115 ...\n"
 sudo apt-get -y install python3-pip
-pip3 install adafruit-circuitpython-ads1x15
+sudo pip3 install adafruit-circuitpython-ads1x15
 
 echo "=> setup SQL-Mariadb:...\n"
 sudo apt -y install mariadb-server mariadb-client
@@ -59,7 +59,7 @@ sudo systemctl stop mariadb
 #sudo systemctl start mariadb
 
 echo "python integration to MYSQL"
-pip3 install mariadb
+sudo pip3 install mariadb
 sudo apt install python3-mysql.connector
 sudo apt-get install phpmyadmin -y
 sudo systemctl start mysql.service
