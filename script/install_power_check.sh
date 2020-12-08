@@ -14,14 +14,14 @@ sudo apt install apache2 -y
 sudo a2enmod cgi
 
 # copy original power_check file to /usr/lib/cgi-bin
-sudo cp -v power_check.py /usr/lib/cgi-bin
+# sudo cp -v power_check.py /usr/lib/cgi-bin
 # We start the power_check script on boot by using systemd file
-sudo cp script/power_check.service /lib/systemd/system
+sudo cp -v script/power_check.service /lib/systemd/system
 sudo chmod 644 /lib/systemd/system/power_check.service
 sudo systemctl daemon-reload
 sudo systemctl enable power_check.service
-export PYTHONPATH="${PYTHONPATH}:/usr/lib/cgi-bin"
-export PYTHONPATH="${PYTHONPATH}:/home/pi/.local/lib/python3.7"
+#export PYTHONPATH="${PYTHONPATH}:/usr/lib/cgi-bin"
+#export PYTHONPATH="${PYTHONPATH}:/home/pi/.local/lib/python3.7"
 #
 
 echo "=> Installing PHP...\n"
