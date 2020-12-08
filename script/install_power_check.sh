@@ -18,8 +18,10 @@ sudo a2enmod cgi
 # We start the power_check script on boot by using systemd file
 sudo cp -v script/power_check.service /lib/systemd/system
 sudo chmod 644 /lib/systemd/system/power_check.service
-sudo systemctl daemon-reload
-sudo systemctl enable power_check.service
+systemctl daemon-reload
+systemctl enable power_check.service
+systemctl start power_check.service
+systemctl status power_check.service
 #export PYTHONPATH="${PYTHONPATH}:/usr/lib/cgi-bin"
 #export PYTHONPATH="${PYTHONPATH}:/home/pi/.local/lib/python3.7"
 #
