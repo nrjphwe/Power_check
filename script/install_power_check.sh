@@ -6,13 +6,6 @@ set -x
 
 cd "$(dirname "$0")/.."
 
-echo  "Authentication=VncAuth" | sudo tee -a  /etc/vnc/config.d/common.custom
-
-echo "=> Installing apache...\n"
-sudo apt update
-sudo apt install apache2 -y
-sudo a2enmod cgi
-
 # copy original power_check file to /usr/lib/cgi-bin
 # sudo cp -v power_check.py /usr/lib/cgi-bin
 # We start the power_check script on boot by using systemd file
@@ -22,12 +15,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable power_check.service
 sudo systemctl start power_check.service
 systemctl status power_check.service
-#export PYTHONPATH="${PYTHONPATH}:/usr/lib/cgi-bin"
-#export PYTHONPATH="${PYTHONPATH}:/home/pi/.local/lib/python3.7"
-#
-
-echo "=> Installing PHP...\n"
-sudo apt install php libapache2-mod-php -y
 
 echo "=> Installing power check php files at /var/www/html/...\n"
 sudo cp -v w3.css /var/www/html
@@ -79,15 +66,8 @@ sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
 
-# start upp VNC
-echo " VNC"
-sudo vncpasswd -service
-# sudo systemctl start vncserver-x11-serviced.service
-# sudo systemctl enable vncserver-x11-serviced.service
-sudo systemctl restart vncserver-x11-serviced
-
 # original file contains dummy passwd.
-echo "sudo nano /usr/lib/cgi-bin/power_check.py"
+echo "sudo nano power_check.py"
 echo "if needed revise password" 
 
 # create an entry in crontab by crontab -e, then in the bottom add
