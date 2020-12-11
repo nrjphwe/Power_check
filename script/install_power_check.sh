@@ -70,5 +70,3 @@ systemctl status grafana-server
 echo "sudo nano power_check.py"
 echo "if needed revise password" 
 
-# create an entry in crontab by crontab -e, then in the bottom add
-# @reboot sudo -H -u pi /usr/bin/python3 /usr/lib/cgi-bin/power_check.py &
