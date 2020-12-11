@@ -10,6 +10,7 @@
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 
+import os
 import sys
 import mariadb
 import datetime #new
@@ -19,8 +20,15 @@ import busio
 import adafruit_ads1x15.ads1015 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 
+conf = {'host': os.environ['SQL_HOST'],
+        'user': os.environ['SQL_USER'],
+        'password': os.environ['SQL_PWD'],
+        'db': os.environ['SQL_DB']}
+
+#conf.update({'charset': 'utf8mb4','cursorclass': pymysql.cursors.SSDictCursor})
+
 try:
-   conn = mariadb.connect(host = "localhost", user = "pi", passwd = "password", db = "regattastart")
+   conn = mariadb.connect(**conf)
    cursor = conn.cursor()
 except mariadb.Error as e:
    print(f"Error connecting to MariaDB Platform: {e}")
