@@ -66,7 +66,11 @@ sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
 
-# original file contains dummy passwd.
-echo "sudo nano power_check.py"
-echo "if needed revise password" 
-
+# Create a credential file for mysql
+# by nano ~/.bash_profile and add this text
+# export SQL_HOST=‘localhost’
+# export SQL_USER=‘pi’
+# export SQL_PWD=‘password’
+# export SQL_DB=‘regattastart'
+# 
+# then do source ~/.bash_profile
