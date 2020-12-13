@@ -20,12 +20,7 @@ import busio
 import adafruit_ads1x15.ads1015 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 
-conf = {'host': os.environ['SQL_HOST'],
-        'user': os.environ['SQL_USER'],
-        'password': os.environ['SQL_PWD'],
-        'db': os.environ['SQL_DB']}
-
-#conf.update({'charset': 'utf8mb4','cursorclass': pymysql.cursors.SSDictCursor})
+conf = {'host': os.environ['SQL_HOST'],'user': os.environ['SQL_USER'],'password': os.environ['SQL_PWD'],'db': os.environ['SQL_DB']}
 
 try:
    conn = mariadb.connect(**conf)
