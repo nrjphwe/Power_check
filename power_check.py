@@ -19,11 +19,19 @@ import board
 import busio
 import adafruit_ads1x15.ads1015 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
+#New
+from mysql.connector import MySQLConnection, Error
+from python_mysql_dbconfig import read_db_config
 
+<<<<<<< HEAD
 conf = {'host': os.environ['SQL_HOST'],'user': os.environ['SQL_USER'],'password': os.environ['SQL_PWD'],'db': os.environ['SQL_DB']}
+=======
+db_config = read_db_config()
+conn = None
+>>>>>>> 8cc8b1bfec07534d889d2890074ac1a4617a833b
 
 try:
-   conn = mariadb.connect(**conf)
+   conn = mariadb.connect(**dbconfig)
    cursor = conn.cursor()
 except mariadb.Error as e:
    print(f"Error connecting to MariaDB Platform: {e}")

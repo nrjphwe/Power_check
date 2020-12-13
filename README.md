@@ -10,3 +10,14 @@ Connect to your Raspberry Pi via SSH.
 Clone this repo: git clone https://github.com/nrjphwe/Power_check
 
 cd Power_check and run the setup script: ./script/install_power_check.sh
+
+
+Also mysql credentials is added to ~/.bash_profile for example:
+by nano ~/.bash_profile
+export SQL_HOST=‘localhost’
+export SQL_USER=‘pi’
+export SQL_PWD=‘password’
+export SQL_DB=‘regattastart'
+
+Then do source ~/.bash_profile
+
