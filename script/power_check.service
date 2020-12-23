@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python3 /home/pi/Power_check/power_check.py
+ExecStart=/usr/bin/python3 -u /home/pi/Power_check/power_check.py > /home/pi/Power_check/power_check.log 2>&1
 
 [Install]
 WantedBy=multi-user.target
