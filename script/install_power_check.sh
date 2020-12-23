@@ -6,11 +6,9 @@ set -x
 
 cd "$(dirname "$0")/.."
 
-# copy original power_check file to /usr/lib/cgi-bin
-# sudo cp -v power_check.py /usr/lib/cgi-bin
-# We start the power_check script on boot by using systemd file
+# We start the power_check script on boot by using systemd file 
 sudo cp -v script/power_check.service /lib/systemd/system
-sudo chmod 644 /lib/systemd/system/power_check.service
+sudo chmod u+x /lib/systemd/system/power_check.service
 sudo systemctl daemon-reload
 sudo systemctl enable power_check.service
 sudo systemctl start power_check.service
