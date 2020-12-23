@@ -12,6 +12,7 @@ Clone this repo: git clone https://github.com/nrjphwe/Power_check
 cd Power_check and run the setup script: ./script/install_power_check.sh
 
 
+?`?`??`
 Also mysql credentials is added to ~/.bash_profile for example:
 by nano ~/.bash_profile
 export SQL_HOST=‘localhost’
