@@ -10,3 +10,5 @@ Connect to your Raspberry Pi via SSH.
 Clone this repo: git clone https://github.com/nrjphwe/Power_check
 
 cd Power_check and run the setup script: ./script/install_power_check.sh
+
+Need to update the config.ini file to your mysql password.
