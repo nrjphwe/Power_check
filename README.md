@@ -13,4 +13,10 @@ cd Power_check and run the setup script: ./script/install_power_check.sh
 
 Need to update the config.ini file to your mysql password.
 
+The i2c connection uses pin 3 for SDA, and pin 5 for SCL
 The shut down uses GPIO4, which is Pin 7.
+
+Pin 2 5V power
+Pin 3 i2c SDA
+Pin 5 i2c SCL
+Pin 6 Ground
