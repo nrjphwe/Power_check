@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
 # /etc/init.d/power_check.py
 ### BEGIN INIT INFO
-# Provides:          power_check.py
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start daemon at boot time
-# Description:       Enable service provided by daemon.
-### END INIT INFO
-
 import os
 import sys
 import mariadb
@@ -44,7 +35,6 @@ try:
 except mariadb.Error as e:
    print(f"Error adding data to Maridb: {e}")
    sys.exit(1)
-
 
 # chan1_diff is a diff voltage between 0 and middle of power divider
 # chan1_diff battery voltage divided by 4.
