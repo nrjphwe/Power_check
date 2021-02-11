@@ -56,19 +56,12 @@ mysql -h localhost -u pi -p < mysql.txt
 
 # install Grafana
 sudo apt-get install -y adduser libfontconfig1
-wget https://dl.grafana.com/oss/release/grafana_7.3.1_armhf.deb
-sudo dpkg -i grafana_7.3.1_armhf.deb
+# for raspberry Pi 3
+wget https://dl.grafana.com/oss/release/grafana_7.4.1_armhf.deb
+sudo dpkg -i grafana_7.4.1_armhf.deb
+
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable grafana-server
 ### You can start grafana-server by executing
 sudo /bin/systemctl start grafana-server
 systemctl status grafana-server
-
-# Create a credential file for mysql
-# by nano ~/.bash_profile and add this text
-# export SQL_HOST=‘localhost’
-# export SQL_USER=‘pi’
-# export SQL_PWD=‘password’
-# export SQL_DB=‘regattastart'
-# 
-# then do source ~/.bash_profile
